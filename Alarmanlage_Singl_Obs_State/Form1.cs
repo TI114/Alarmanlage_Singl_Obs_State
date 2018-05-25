@@ -17,7 +17,7 @@ namespace Alarmanlage_Singl_Obs_State
         public Form1()
         {
             InitializeComponent();
-            UnsereAA = new Alarmanlage(new State_Aus());            
+            UnsereAA = new Alarmanlage(State_Aus.GetInstance());            
         }
 
         private void btn_an_Click(object sender, EventArgs e)

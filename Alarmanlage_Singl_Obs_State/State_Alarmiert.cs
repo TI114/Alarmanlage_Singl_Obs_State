@@ -8,6 +8,23 @@ namespace Alarmanlage_Singl_Obs_State
 {
     class State_Alarmiert : IState
     {
+        private static IState Instance;
+
+        private State_Alarmiert()
+        {
+
+        }
+
+        public static IState GetInstance()
+        {
+            if (Instance == null)
+            {
+                Instance = new State_Alarmiert();
+            }
+            return Instance;
+
+        }
+
         public void AlarmAusloesen(Alarmanlage alarmanlage)
         {
             // bleibt leer
@@ -20,7 +37,7 @@ namespace Alarmanlage_Singl_Obs_State
 
         public void Ausschalten(Alarmanlage alarmanlage)
         {
-            alarmanlage.SetStatus(new State_Aus());
+            alarmanlage.SetStatus(State_Aus.GetInstance());
         }
 
 
