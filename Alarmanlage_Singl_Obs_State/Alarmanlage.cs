@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 namespace Alarmanlage_Singl_Obs_State
 {
-    public class Alarmanlage 
+    public class Alarmanlage : Subject
     {
         IState Status;
         private string Password;
@@ -31,7 +31,7 @@ namespace Alarmanlage_Singl_Obs_State
         {
             SetPassword(parameter);
             Status.Anschalten(this);
-            MessageBox.Show("Alarmanlage Scharfgeschaltet!");
+            Notify();
         }
 
         public void Ausschalten(string parameter)
@@ -39,7 +39,7 @@ namespace Alarmanlage_Singl_Obs_State
             if (PasswordCheck(parameter))
             {
                 Status.Ausschalten(this);
-                MessageBox.Show("Alarmanlage Ausgeschaltet!");
+                Notify();
             }            
             else
             {
@@ -50,8 +50,8 @@ namespace Alarmanlage_Singl_Obs_State
 
         public void AlarmAusloesen()
         {
-            Status.AlarmAusloesen(this);            
-            MessageBox.Show("Alarm!!!!!!!!!!!!!");
+            Status.AlarmAusloesen(this);
+            Notify();
         }
 
         private bool PasswordCheck(string pw)
