@@ -13,11 +13,12 @@ namespace Alarmanlage_Singl_Obs_State
         public void Attach(IObserver objekt)
         {
             ObserverListe.Add(objekt);
+            Notify();
         }
 
         public void Detach(IObserver objekt)
         {
-            ObserverListe.Remove(objekt);
+            ObserverListe.Remove(objekt);            
         }
 
         public void Notify()
