@@ -17,6 +17,7 @@ namespace Alarmanlage_Singl_Obs_State
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
+
         }
     }
 }
