@@ -8,17 +8,21 @@ namespace Alarmanlage_Singl_Obs_State
 {
     class State_Alarmiert : IState
     {
-        public void Change(StateContext context)
+        public void AlarmAusloesen(Alarmanlage alarmanlage)
         {
-            if (context.Password == context.EingegebenesPW)
-            {
-                context.AktuellenStatusSetzen(new State_Aus());
-                Console.WriteLine("Status Aus");
-            }
-            else
-            { Console.WriteLine("Passwort Falsch"); }
+            // bleibt leer
         }
 
-        
+        public void Anschalten(Alarmanlage alarmanlage)
+        {
+            // bleibt leer
+        }
+
+        public void Ausschalten(Alarmanlage alarmanlage)
+        {
+            alarmanlage.SetStatus(new State_Aus());
+        }
+
+
     }
 }

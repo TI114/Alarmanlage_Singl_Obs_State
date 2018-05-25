@@ -6,9 +6,16 @@ using System.Threading.Tasks;
 
 namespace Alarmanlage_Singl_Obs_State
 {
-    interface IState
+    public interface IState
     {
-        void Change(StateContext context);
-        //void Ausschalten(StateContext context);
+        //void Change(StateContext context);
+
+        void Anschalten(Alarmanlage alarmanlage);
+
+        void Ausschalten(Alarmanlage alarmanlage);
+
+        void AlarmAusloesen(Alarmanlage alarmanlage);
+        
+
     }
 }

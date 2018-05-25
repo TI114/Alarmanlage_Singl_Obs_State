@@ -12,25 +12,22 @@ namespace Alarmanlage_Singl_Obs_State
 {
     public partial class Form1 : Form
     {
-        StateContext Alarmanlage = new StateContext();
-        List<StateContext> myList = new List<StateContext>();
+        Alarmanlage UnsereAA;
+
         public Form1()
         {
             InitializeComponent();
-            
+            UnsereAA = new Alarmanlage(new State_Aus());            
         }
 
-        private void btn_change_Click(object sender, EventArgs e)
+        private void btn_an_Click(object sender, EventArgs e)
         {
-            
-            Alarmanlage.EingegebenesPW = textBox1.Text;
-            if (Alarmanlage.Password == null)
-            {
-                Alarmanlage.Password = Alarmanlage.EingegebenesPW;
-            }
-            Alarmanlage.Change();
-            listBox1.Items.Clear();
-            listBox1.Items.Add(Alarmanlage.AktuellerStatus);
+            UnsereAA.Anschalten(textBox1.Text);            
+        }
+
+        private void btn_aus_Click(object sender, EventArgs e)
+        {
+            UnsereAA.Ausschalten(textBox1.Text);
         }
     }
 }
